@@ -1,4 +1,4 @@
-# 🕷️ Jumia Scraper — Collecte automatisée de données e-commerce en Côte d'Ivoire
+# 🕷️ Scraper E-commerce — Collecte automatisée de données produits (Python)
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![Selenium](https://img.shields.io/badge/Selenium-43B02A?style=flat&logo=selenium&logoColor=white)
@@ -6,14 +6,14 @@
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat&logo=jupyter&logoColor=white)
 
-> Système de **web scraping** qui collecte automatiquement les fiches produits de la plateforme e-commerce **Jumia Côte d'Ivoire** (smartphones et accessoires) et les structure en jeu de données exploitable pour l'analyse et l'IA.
+> Système de **web scraping** qui collecte automatiquement les fiches produits d'une **plateforme e-commerce en Côte d'Ivoire** (smartphones et accessoires) et les structure en jeu de données exploitable pour l'analyse et l'IA.
 > Réalisé pendant mon stage de Data Analyst (2025), comme première brique d'un projet de solutions d'IA basées sur les tendances du marché e-commerce ivoirien.
 
 ---
 
 ## 🎯 Objectifs
 
-- Créer un **scraper automatique** pour extraire les données produits d'une plateforme e-commerce ivoirienne (cas : Jumia)
+- Créer un **scraper automatique** pour extraire les données produits d'une plateforme e-commerce ivoirienne
 - **Structurer et stocker** les données extraites dans un format exploitable (CSV)
 - **Explorer** les données collectées dans des notebooks interactifs
 - Constituer une **base de données d'apprentissage** pour un futur projet d'IA
@@ -21,7 +21,7 @@
 ## 🧭 Fonctionnement
 
 ```
-categories.json  ──▶  Scraping (Selenium + BeautifulSoup)  ──▶  Structuration (Pandas)  ──▶  jumia_smartphones.csv
+categories.json  ──▶  Scraping (Selenium + BeautifulSoup)  ──▶  Structuration (Pandas)  ──▶  smartphones.csv
 ```
 
 1. **Configuration** : les catégories de produits à collecter sont définies dans `config/categories.json`.
@@ -44,14 +44,14 @@ categories.json  ──▶  Scraping (Selenium + BeautifulSoup)  ──▶  Stru
 ## 📁 Structure du projet
 
 ```
-jumia-scraper-ecommerce-ci/
+scraper-ecommerce/
 ├── config/
 │   └── categories.json          # Catégories de produits à collecter
 ├── data/
-│   └── jumia_smartphones.csv    # Données extraites
+│   └── smartphones.csv          # Données extraites
 ├── notebooks/
-│   ├── jumia scraping_code.ipynb   # Code du scraper
-│   └── Extraction_Jumia.ipynb      # Extraction et exploration des données
+│   ├── scraping_code.ipynb         # Code du scraper
+│   └── extraction_donnees.ipynb    # Extraction et exploration des données
 ├── requirements.txt
 └── README.md
 ```
@@ -59,8 +59,8 @@ jumia-scraper-ecommerce-ci/
 ## ▶️ Installation et utilisation
 
 ```bash
-git clone https://github.com/itraore05/jumia-scraper-ecommerce-ci.git
-cd jumia-scraper-ecommerce-ci
+git clone https://github.com/itraore05/scraper-ecommerce.git
+cd scraper-ecommerce
 pip install -r requirements.txt
 ```
 
