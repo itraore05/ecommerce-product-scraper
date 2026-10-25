@@ -44,7 +44,7 @@ categories.json  ──▶  Scraping (Selenium + BeautifulSoup)  ──▶  Stru
 ## 📁 Structure du projet
 
 ```
-scraper-ecommerce/
+ecommerce-product-scraper/
 ├── config/
 │   └── categories.json          # Catégories de produits à collecter
 ├── data/
@@ -59,8 +59,8 @@ scraper-ecommerce/
 ## ▶️ Installation et utilisation
 
 ```bash
-git clone https://github.com/itraore05/scraper-ecommerce.git
-cd scraper-ecommerce
+git clone https://github.com/itraore05/ecommerce-product-scraper.git
+cd ecommerce-product-scraper
 pip install -r requirements.txt
 ```
 
