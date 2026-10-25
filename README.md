@@ -1,7 +1,7 @@
 # 🕷️ Scraper E-commerce — Collecte automatisée de données produits (Python)
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![Selenium](https://img.shields.io/badge/Selenium-43B02A?style=flat&logo=selenium&logoColor=white)
+![Requests](https://img.shields.io/badge/Requests-HTTP-2CA5E0?style=flat)
 ![BeautifulSoup](https://img.shields.io/badge/BeautifulSoup-HTML%20parsing-4B8BBE?style=flat)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat&logo=jupyter&logoColor=white)
@@ -21,12 +21,12 @@
 ## 🧭 Fonctionnement
 
 ```
-categories.json  ──▶  Scraping (Selenium + BeautifulSoup)  ──▶  Structuration (Pandas)  ──▶  smartphones.csv
+categories.json  ──▶  Requêtes HTTP + parsing (BeautifulSoup)  ──▶  Structuration (Pandas)  ──▶  smartphones.csv
 ```
 
 1. **Configuration** : les catégories de produits à collecter sont définies dans `config/categories.json`.
-2. **Navigation** : Selenium parcourt les pages dynamiques (pagination, chargement JavaScript).
-3. **Extraction** : BeautifulSoup analyse le HTML et récupère les informations de chaque produit.
+2. **Récupération** : `requests` télécharge les pages catalogue, avec en-têtes navigateur, délais aléatoires et nouvelles tentatives en cas d'erreur.
+3. **Extraction** : BeautifulSoup analyse le HTML et récupère pour chaque produit : nom, marque, prix, ancien prix, lien et note.
 4. **Structuration** : Pandas nettoie et organise les données, puis les exporte en CSV.
 5. **Exploration** : un notebook dédié analyse le jeu de données obtenu.
 
@@ -35,8 +35,8 @@ categories.json  ──▶  Scraping (Selenium + BeautifulSoup)  ──▶  Stru
 | Rôle | Outils |
 |---|---|
 | Langage | Python |
-| Scraping dynamique | Selenium |
-| Parsing HTML | requests, BeautifulSoup |
+| Requêtes HTTP | requests |
+| Parsing HTML | BeautifulSoup, lxml |
 | Manipulation de données | pandas |
 | Utilitaires | json, os, time |
 | Exploration | Jupyter Notebook |
@@ -48,10 +48,12 @@ ecommerce-product-scraper/
 ├── config/
 │   └── categories.json          # Catégories de produits à collecter
 ├── data/
-│   └── smartphones.csv          # Données extraites
+│   └── smartphones.csv          # Échantillon de données extraites (106 produits)
 ├── notebooks/
 │   ├── scraping_code.ipynb         # Code du scraper
 │   └── extraction_donnees.ipynb    # Extraction et exploration des données
+├── documentation/
+│   └── Description du Projet.docx  # Présentation détaillée du projet
 ├── requirements.txt
 └── README.md
 ```
@@ -64,15 +66,14 @@ cd ecommerce-product-scraper
 pip install -r requirements.txt
 ```
 
-1. Installer Google Chrome et le ChromeDriver correspondant (requis par Selenium).
-2. Adapter si besoin les catégories dans `config/categories.json`.
-3. Ouvrir et exécuter les notebooks du dossier `notebooks/`.
+1. Adapter si besoin les catégories dans `config/categories.json`.
+2. Ouvrir et exécuter les notebooks du dossier `notebooks/`.
 
 > ⚠️ Projet réalisé à des fins d'analyse et d'apprentissage. Toute collecte doit respecter les conditions d'utilisation du site concerné et rester raisonnable en nombre de requêtes.
 
 ## 💡 Compétences démontrées
 
-- Développement de scripts de collecte web automatisés (pages statiques et dynamiques)
+- Développement de scripts de collecte web robustes (gestion des erreurs, nouvelles tentatives, délais)
 - Structuration d'un projet Python reproductible (configuration, données, notebooks, dépendances)
 - Manipulation et préparation de données avec pandas
 - Compréhension des enjeux de la collecte de données pour l'IA
